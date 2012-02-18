@@ -1,19 +1,19 @@
 Various scripts for setting up servers.
 
-install.sh: 
-
-Original from  http://www.accumulodata.com/install.sh
-
-java was removed from ubuntu. Modified to use 
-
-https://github.com/flexiondotorg/oab-java6
+install.sh: Original from  http://www.accumulodata.com/install.sh
+java was removed from ubuntu. Modified to use https://github.com/flexiondotorg/oab-java6 for java.
 
 
-To install 
+
+* To install 
 
 ssh -i foo.pem ubuntu@ec2box 
 
 sh -c "$(curl -fsSL https://raw.github.com/tlpinney/cloudops/master/seed.sh)"
+
+# workaround 
+
+ssh localhost # hit yes to add hostname 
 
 # set up your instance name and password 
 
@@ -23,5 +23,8 @@ sh -c "$(curl -fsSL https://raw.github.com/tlpinney/cloudops/master/seed.sh)"
 
 ~/accumulo/bin/start-all.sh
  
+# Log into the console 
+~/accumulo/bin/accumulo shell -u root 
+
 
 
