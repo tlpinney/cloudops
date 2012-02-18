@@ -104,6 +104,10 @@ sudo -u hdfs hadoop fs -chmod a+rwx /
 # Start up the last daemon 
 sudo /etc/init.d/hadoop-0.20-jobtracker start
 
+# Bounce zookeeper 
+sudo /etc/init.d/hadoop-zookeeper-server restart 
+
+
 
 
 
