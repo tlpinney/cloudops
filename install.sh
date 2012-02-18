@@ -31,6 +31,9 @@ sudo apt-get install sun-java6-jdk -y
 
 sudo apt-get install gcc g++ python-software-properties hadoop-0.20 hadoop-0.20-namenode hadoop-0.20-datanode hadoop-0.20-jobtracker hadoop-0.20-tasktracker hadoop-zookeeper xfsprogs -y
 
+sudo apt-get install hadoop-zookeeper-server -y
+
+
 
 # get Accumulo
 
