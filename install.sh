@@ -83,3 +83,35 @@ sudo chown -R hdfs /mnt2/hdfs
 sudo chown -R mapred /mnt2/mapred
 
 
+# Run puppet apply, this sets up various configs
+sudo puppet apply /home/ubuntu/cloudops/accumulo.pp 
+
+
+# hack so it can format without bothering user 
+sudo chown hdfs /mnt
+sudo rmdir /mnt/namenode
+sudo -u hdfs hadoop namenode -format
+sudo chown root /mnt 
+
+# start up daemons 
+sudo /etc/init.d/hadoop-0.20-datanode start
+sudo /etc/init.d/hadoop-0.20-namenode start
+sudo /etc/init.d/hadoop-0.20-tasktracker start
+
+# I don't recommend this ...
+sudo -u hdfs hadoop fs -chmod a+rwx /
+
+# Start up the last daemon 
+sudo /etc/init.d/hadoop-0.20-jobtracker start
+
+
+
+
+
+
+
+
+
+
+
+

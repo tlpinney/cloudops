@@ -53,7 +53,7 @@ file { "/home/ubuntu/accumulo/conf/masters" :
    owner => ubuntu,
    group => ubuntu,
    mode => 644,
-   source => "/home/ubuntu/cloudops/configs/masters"
+   content => template("/home/ubuntu/cloudops/configs/masters.erb")
 }
 
 
@@ -61,7 +61,7 @@ file { "/home/ubuntu/accumulo/conf/slaves" :
    owner => ubuntu,
    group => ubuntu,
    mode => 644,
-   source => "/home/ubuntu/cloudops/configs/slaves"
+   content => template("/home/ubuntu/cloudops/configs/slaves.erb")
 }
 
 

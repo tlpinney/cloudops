@@ -15,6 +15,13 @@ ssh -i foo.pem ubuntu@ec2box
 
 sh -c "$(curl -fsSL https://raw.github.com/tlpinney/cloudops/master/seed.sh)"
 
+# set up your instance name and password 
+
+~/accumulo/bin/accumulo init
+
+# start the services 
+
+~/accumulo/bin/start-all.sh
  
 
 
