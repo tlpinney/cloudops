@@ -85,6 +85,12 @@ file { "/home/ubuntu/accumulo/conf/monitor" :
    content => template("/home/ubuntu/cloudops/configs/monitor.erb")
 }
 
+file { "/home/ubuntu/accumulo/conf/accumulo-metrics.xml" :
+   owner => ubuntu,
+   group => ubuntu,
+   mode => 644,
+   source => "/home/ubuntu/cloudops/configs/accumulo-metrics.xml"
+}
 
 
 
