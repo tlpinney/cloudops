@@ -34,6 +34,14 @@ file { "/etc/zookeeper/zoo.cfg" :
    source => "/home/ubuntu/cloudops/configs/zoo.cfg"
 }
 
+file { "/home/ubuntu/accumulo/conf/accumulo-env.sh" :
+   owner => ubuntu,
+   group => ubuntu,
+   mode => 644,
+   source => "/home/ubuntu/cloudops/configs/accumulo-env.sh"
+}
+
+
 
 
 
