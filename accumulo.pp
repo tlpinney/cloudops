@@ -49,5 +49,22 @@ file { "/home/ubuntu/accumulo/conf/accumulo-site.xml" :
 }
 
 
+file { "/home/ubuntu/accumulo/conf/masters" :
+   owner => ubuntu,
+   group => ubuntu,
+   mode => 644,
+   source => "/home/ubuntu/cloudops/configs/masters"
+}
+
+
+file { "/home/ubuntu/accumulo/conf/slaves" :
+   owner => ubuntu,
+   group => ubuntu,
+   mode => 644,
+   source => "/home/ubuntu/cloudops/configs/slaves"
+}
+
+
+
 
 
