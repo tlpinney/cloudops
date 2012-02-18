@@ -64,6 +64,26 @@ file { "/home/ubuntu/accumulo/conf/slaves" :
    content => template("/home/ubuntu/cloudops/configs/slaves.erb")
 }
 
+file { "/home/ubuntu/accumulo/conf/tracers" :
+   owner => ubuntu,
+   group => ubuntu,
+   mode => 644,
+   content => template("/home/ubuntu/cloudops/configs/tracers.erb")
+}
+
+file { "/home/ubuntu/accumulo/conf/gc" :
+   owner => ubuntu,
+   group => ubuntu,
+   mode => 644,
+   content => template("/home/ubuntu/cloudops/configs/gc.erb")
+}
+
+file { "/home/ubuntu/accumulo/conf/monitor" :
+   owner => ubuntu,
+   group => ubuntu,
+   mode => 644,
+   content => template("/home/ubuntu/cloudops/configs/monitor.erb")
+}
 
 
 
