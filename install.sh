@@ -25,7 +25,7 @@ cd
 wget https://raw.github.com/flexiondotorg/oab-java6/master/oab-java6.sh -O oab-java6.sh
 chmod +x oab-java6.sh
 sudo ./oab-java6.sh
-sudo apt-get install sun-java6-jdk
+sudo apt-get install sun-java6-jdk -y 
 
 
 
