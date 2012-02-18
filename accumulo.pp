@@ -27,6 +27,13 @@ file { "/etc/hadoop/conf/mapred-site.xml" :
    content => template("/home/ubuntu/cloudops/configs/mapred-site.erb")
 }
 
+file { "/etc/zookeeper/zoo.cfg" :
+   owner => root,
+   group => root,
+   mode => 644,
+   source => "/home/ubuntu/cloudops/configs/zoo.cfg"
+}
+
 
 
 
