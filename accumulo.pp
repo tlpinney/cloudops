@@ -41,6 +41,12 @@ file { "/home/ubuntu/accumulo/conf/accumulo-env.sh" :
    source => "/home/ubuntu/cloudops/configs/accumulo-env.sh"
 }
 
+file { "/home/ubuntu/accumulo/conf/accumulo-site.xml" :
+   owner => ubuntu,
+   group => ubuntu,
+   mode => 644,
+   content => template("/home/ubuntu/cloudops/configs/accumulo-site.erb")
+}
 
 
 
