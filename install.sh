@@ -19,14 +19,15 @@ sudo add-apt-repository "deb http://archive.cloudera.com/debian $RELEASE-cdh3b4 
 
 sudo apt-get update
 
-cat << EOD | sudo debconf-set-selections
-sun-java6-jdk shared/accepted-sun-dlj-v1-1 select true
-sun-java6-jre shared/accepted-sun-dlj-v1-1 select true
-EOD
+sudo apt-get install git 
 
-sudo dpkg --set-selections <<EOS
-sun-java6-jdk install
-EOS
+cd 
+wget https://raw.github.com/flexiondotorg/oab-java6/master/oab-java6.sh -O oab-java6.sh
+chmod +x oab-java6.sh
+sudo ./oab-java6.sh
+sudo apt-get install sun-java6-jdk
+
+
 
 sudo apt-get install gcc g++ python-software-properties hadoop-0.20 hadoop-0.20-namenode hadoop-0.20-datanode hadoop-0.20-jobtracker hadoop-0.20-tasktracker hadoop-zookeeper xfsprogs -y
 
