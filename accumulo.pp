@@ -20,6 +20,12 @@ file { "/etc/hadoop/conf/hdfs-site.xml" :
    source => "/home/ubuntu/cloudops/configs/hdfs-site.xml"
 }
 
+file { "/etc/hadoop/conf/mapred-site.xml" :
+   owner => root,
+   group => hadoop,
+   mode => 644,
+   content => template("/home/ubuntu/cloudops/configs/mapred-site.erb")
+}
 
 
 
