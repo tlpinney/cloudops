@@ -1,2 +1,12 @@
 Various scripts for setting up servers.
 
+install.sh: 
+
+Original from  http://www.accumulodata.com/install.sh
+
+java was removed from ubuntu. Modified to use 
+
+https://github.com/flexiondotorg/oab-java6
+ 
+
+
