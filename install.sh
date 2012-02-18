@@ -19,7 +19,7 @@ sudo add-apt-repository "deb http://archive.cloudera.com/debian $RELEASE-cdh3b4 
 
 sudo apt-get update
 
-sudo apt-get install git -y
+sudo apt-get install git puppet -y
 
 cd 
 wget https://raw.github.com/flexiondotorg/oab-java6/master/oab-java6.sh -O oab-java6.sh
