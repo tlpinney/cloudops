@@ -13,6 +13,13 @@ file { "/etc/hadoop/conf/core-site.xml" :
    content => template("/home/ubuntu/cloudops/configs/core-site.erb")
 }
 
+file { "/etc/hadoop/conf/hdfs-site.xml" :
+   owner => root,
+   group => hadoop,
+   mode => 644,
+   source => "/home/ubuntu/cloudops/configs/hdfs-site.xml"
+}
+
 
 
 
