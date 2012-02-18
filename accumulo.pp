@@ -6,6 +6,13 @@ file { "/etc/hadoop/conf/hadoop-env.sh" :
    mode => 644
 }
 
+file { "/etc/hadoop/conf/core-site.xml" :
+   owner => root,
+   group => hadoop,
+   mode => 644,
+   content => template("/home/ubuntu/cloudops/configs/core-site.erb")
+}
+
 
 
 
