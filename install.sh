@@ -30,7 +30,7 @@ sudo apt-get install sun-java6-jdk -y --force-yes
 ssh-keygen -q -t rsa -b 4096 -N "" -f ~/.ssh/id_rsa
 cat /home/ubuntu/.ssh/id_rsa.pub >> /home/ubuntu/.ssh/authorized_keys
 chmod 600 /home/ubuntu/.ssh/authorized_keys
-ssh-keyscan localhost > ~/known_hosts
+ssh-keyscan localhost > ~/.ssh/known_hosts
 
 
 
