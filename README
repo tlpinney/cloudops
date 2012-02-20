@@ -9,6 +9,9 @@ java was removed from ubuntu. Modified to use https://github.com/flexiondotorg/o
 
 * Set up chef 
 
+* Install ruby and rubygems (If not already installed)
+* sudo gem install knife-ec2 chef 
+ 
 mkdir ~/.chef 
 cp knife.py ~/.chef
 
@@ -28,10 +31,6 @@ ssh -i ~/.ssh/accumulo.pem ubuntu@ec2box
 
 
 sh -c "$(curl -fsSL https://raw.github.com/tlpinney/cloudops/master/seed.sh)"
-
-# workaround 
-
-ssh localhost # hit yes to add hostname 
 
 # set up your instance name and password 
 
