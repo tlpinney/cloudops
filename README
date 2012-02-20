@@ -30,7 +30,7 @@ knife ec2 server list
 ssh -i ~/.ssh/accumulo.pem ubuntu@ec2box 
 
 
-sh -c "$(curl -fsSL https://raw.github.com/tlpinney/cloudops/master/seed.sh)"
+sh -c "$(curl -fsSL https://raw.github.com/tlpinney/cloudops/v0.2/seed.sh)"
 
 # set up your instance name and password 
 
