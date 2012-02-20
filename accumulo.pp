@@ -93,4 +93,14 @@ file { "/home/ubuntu/accumulo/conf/accumulo-metrics.xml" :
 }
 
 
+exec { "Add servers ip address to known_hosts":
+   cwd => "/home/ubuntu",
+   user => "ubuntu",
+   group => "ubuntu",
+   command => "ssh-keyscan $ipaddress >> ~/.ssh/known_hosts && touch /home/ubuntu/known_hosts_added.log",
+   creates => "/home/ubuntu/known_hosts_added.log",
+   path => ["/usr/bin", "/usr/sbin"]
+}
+
+
 
