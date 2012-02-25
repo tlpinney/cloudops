@@ -1,11 +1,17 @@
-Various scripts for setting up servers.
+Accumulo Rapid Setup 
 
+tlpinney - travis.pinney@gmail.com
+
+Based on 
 install.sh: Original from  http://www.accumulodata.com/install.sh
 java was removed from ubuntu. Modified to use https://github.com/flexiondotorg/oab-java6 for java.
 
 
-
 * To install 
+
+Set up a m1.large instance manually using aws console 
+... or 
+use Chef 
 
 * Set up chef 
 
@@ -29,7 +35,6 @@ knife ec2 server list
 
 ssh -i ~/.ssh/accumulo.pem ubuntu@ec2box 
 
-
 sh -c "$(curl -fsSL https://raw.github.com/tlpinney/cloudops/v0.2/seed.sh)"
 
 # set up your instance name and password 
@@ -42,6 +47,5 @@ sh -c "$(curl -fsSL https://raw.github.com/tlpinney/cloudops/v0.2/seed.sh)"
  
 # Log into the console 
 ~/accumulo/bin/accumulo shell -u root 
-
 
 
