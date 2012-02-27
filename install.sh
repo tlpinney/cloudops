@@ -22,10 +22,24 @@ sudo apt-get update
 sudo apt-get install git puppet -y
 
 cd 
+
+# check if you cached the deb files
+# need to work on this
+#if [ -f "/vagrant/cached/sun-java6-bin_6.31-1~maverick1_amd64.deb" ] 
+#then 
+#cd /vagrant/cached 
+#sudo apt-key add pubkey.asc
+#sudo dpkg -f -i sun-java6-bin_6.31-1~maverick1_amd64.deb sun-java6-fonts_6.31-1~maverick1_all.deb sun-java6-javadb_6.31-1~maverick1_all.deb sun-java6-jdk_6.31-1~maverick1_amd64.deb sun-java6-jre_6.31-1~maverick1_all.deb 
+#cd
+
+#else
 wget https://raw.github.com/flexiondotorg/oab-java6/master/oab-java6.sh -O oab-java6.sh
 chmod +x oab-java6.sh
 sudo ./oab-java6.sh
 sudo apt-get install sun-java6-jdk -y --force-yes
+#fi 
+
+
 
 ssh-keygen -q -t rsa -b 4096 -N "" -f ~/.ssh/id_rsa
 cat /home/ubuntu/.ssh/id_rsa.pub >> /home/ubuntu/.ssh/authorized_keys
@@ -45,7 +59,14 @@ sudo apt-get install hadoop-zookeeper-server -y
 
 # get Accumulo
 
+if [ ! -f "/vagrant/cached/accumulo-1.3.5-incubating-dist.tar.gz" ]
+then
 wget http://www.alliedquotes.com/mirrors/apache/incubator/accumulo/1.3.5-incubating/accumulo-1.3.5-incubating-dist.tar.gz
+else
+cp /vagrant/cached/accumulo-1.3.5-incubating-dist.tar.gz ~
+fi
+
+
 tar -xzf accumulo-1.3.5-incubating-dist.tar.gz
 ln -s accumulo-1.3.5-incubating accumulo
 
@@ -58,13 +79,18 @@ sudo cp /usr/lib/zookeeper/zookeeper.jar /usr/lib/hadoop/lib/
 
 # setup data directory
 
-sudo umount /mnt;
-sudo /sbin/mkfs.xfs -f /dev/sdb;
-sudo mount -o noatime /dev/sdb /mnt;
+if [ ! -d "/home/vagrant" ] 
+then
+  sudo umount /mnt;
+  sudo /sbin/mkfs.xfs -f /dev/sdb;
+  sudo mount -o noatime /dev/sdb /mnt;
 
-sudo mkdir /mnt2;
-sudo /sbin/mkfs.xfs -f /dev/sdc;
-sudo mount -o noatime /dev/sdc /mnt2;
+  sudo mkdir /mnt2;
+  sudo /sbin/mkfs.xfs -f /dev/sdc;
+  sudo mount -o noatime /dev/sdc /mnt2;
+else
+  sudo mkdir /mnt2;
+fi
 
 sudo chown -R ubuntu /mnt
 sudo chown -R ubuntu /mnt2
@@ -86,7 +112,15 @@ sudo chown -R mapred /mnt2/mapred
 
 
 # Run puppet apply, this sets up various configs
-sudo puppet apply /home/ubuntu/cloudops/accumulo.pp 
+
+if [ ! -d "/home/vagrant" ] 
+then
+   sudo puppet apply /home/ubuntu/cloudops/accumulo.pp 
+else 
+   mkdir -p /home/ubuntu/cloudops/configs/
+   cp -r /vagrant/configs/* /home/ubuntu/cloudops/configs
+   sudo puppet apply /vagrant/accumulo.pp
+fi 
 
 
 # hack so it can format without bothering user 

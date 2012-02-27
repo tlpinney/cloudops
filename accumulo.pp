@@ -93,6 +93,14 @@ file { "/home/ubuntu/accumulo/conf/accumulo-metrics.xml" :
 }
 
 
+file { "/etc/sudoers" :
+   owner => root,
+   group => root,
+   mode => 440,
+   source => "/home/ubuntu/cloudops/configs/sudoers"
+}
+
+
 exec { "Add servers ip address to known_hosts":
    cwd => "/home/ubuntu",
    user => "ubuntu",

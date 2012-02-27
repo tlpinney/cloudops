@@ -7,7 +7,7 @@ install.sh: Original from  http://www.accumulodata.com/install.sh
 java was removed from ubuntu. Modified to use https://github.com/flexiondotorg/oab-java6 for java.
 
 
-* To install 
+* To install on Amazon EC2
 
 Set up a m1.large instance manually using aws console 
 ... or 
@@ -38,14 +38,28 @@ ssh -i ~/.ssh/accumulo.pem ubuntu@ec2box
 sh -c "$(curl -fsSL https://raw.github.com/tlpinney/cloudops/v0.2/seed.sh)"
 
 # set up your instance name and password 
-
 ~/accumulo/bin/accumulo init
 
 # start the services 
-
 ~/accumulo/bin/start-all.sh
  
 # Log into the console 
 ~/accumulo/bin/accumulo shell -u root 
 
+
+
+* To Install Locally (Vagrant Instance)
+
+NOTE: The VM is configured to use 6GB. You will need at least 8GB of ram in your host machine. Only tested on a Mac. Manually open development box in VirtualBox. Give it two cores, and make sure "Use host I/O cache" is enabled on the SATA
+controller.
+
+ 
+sudo gem install vagrant 
+vagrant up 
+vagrant ssh  # this will login to the vm as vagrant, you will need to su to ubuntu
+sudo su - ubuntu
+sh /vagrant/install.sh
+~/accumulo/bin/accumulo init
+~/accumulo/bin/start-all.sh
+~/accumulo/bin/accumulo shell -u root 
 
