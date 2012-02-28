@@ -1,0 +1,4 @@
+Create cacheable files (for java and accumulo tarball) 
+Switch over to debian packages 
+Add automated way to set up eclipse in the environment (with the project checked out)
+Add automated guest utilities updater  

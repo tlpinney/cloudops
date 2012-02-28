@@ -1,3 +1,5 @@
+# VM specific settings
+
 group { "puppet":
    ensure => "present",
  }
@@ -18,6 +20,7 @@ define user_homedir ($group, $fullname, $ingroups) {
     shell => "/bin/bash",
     home => "/home/$name",
     require => Group[$group],
+    password => '$6$9zNwzhCI$Wy9Wqae/BMv6fob6M7y.hnClq.Ci6ubuTqw8iexrOHP47HaA4auldt5taEy3pdqltPzSUhnYt4zfWp2fFCeyq/',
   }
 
   exec { "$name homedir":
@@ -37,7 +40,7 @@ user_homedir { "ubuntu":
 File { owner => 0, group => 0, mode => 0644 }
 
 file { '/etc/motd':
-   content => "Welcome to your Accumulo Dev Box v0.1!"
+   content => "Welcome to your Accumulo Dev Box v0.2!"
    
 }
 

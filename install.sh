@@ -145,6 +145,20 @@ sudo /etc/init.d/hadoop-zookeeper-server restart
 
 
 
+# install gui development environment if it is the vm 
+if [ -d "/home/vagrant" ] 
+then
+cd
+sudo apt-get install xorg -y
+sudo apt-get install openbox -y
+sudo apt-get install firefox -y
+sudo apt-get install gnome-terminal -y
+sudo apt-get install libsvn-java -y
+#sudo su - ubuntu 
+#wget http://mirror.cc.vt.edu/pub/eclipse/technology/epp/downloads/release/indigo/SR2/eclipse-jee-indigo-SR2-linux-gtk-x86_64.tar.gz
+#tar xzvf eclipse-jee-indigo-SR2-linux-gtk-x86_64.tar.gz
+fi 
+
 
 
 
