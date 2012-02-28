@@ -12,7 +12,7 @@ RELEASE=`lsb_release -c | awk {'print $2'}`
 
 curl -s http://archive.cloudera.com/debian/archive.key | sudo apt-key add -
 
-sudo apt-get install python-software-properties -y
+sudo apt-get install subversion python-software-properties -y
 sudo add-apt-repository "deb http://archive.canonical.com/ $RELEASE partner"
 sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu/ $RELEASE multiverse"
 sudo add-apt-repository "deb http://archive.cloudera.com/debian $RELEASE-cdh3b4 contrib"
