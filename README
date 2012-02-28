@@ -53,12 +53,38 @@ sh -c "$(curl -fsSL https://raw.github.com/tlpinney/cloudops/v0.2/seed.sh)"
 NOTE: The VM is configured to use 6GB. You will need at least 8GB of ram in your host machine. Only tested on a Mac. Manually open development box in VirtualBox. Give it two cores, and make sure "Use host I/O cache" is enabled on the SATA
 controller.
 
+Windows Install 
 Recommended if installing vagrant on Windows
 http://rubyinstaller.org/
 
+vagrant binary (if you can't install it from the gem for some reason)
+http://downloads.vagrantup.com/tags/v1.0.0.rc2
 
- 
+virtualbox
+https://www.virtualbox.org/wiki/Downloads
+
+
+
+Mac Install
+macosx installer for git (if you dont already have it)
+http://code.google.com/p/git-osx-installer/
+
+vagrant binary (if you can't install it from the gem for some reason)
+http://downloads.vagrantup.com/tags/v1.0.0.rc2
+
+virtualbox
+https://www.virtualbox.org/wiki/Downloads
+
+
+Linux Install 
+Install ruby and rubygems
 sudo gem install vagrant 
+
+
+
+
+
+
 vagrant up 
 
 vagrant ssh  # this will login to the vm as vagrant, you will need to su to ubuntu
