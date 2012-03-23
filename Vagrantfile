@@ -10,7 +10,7 @@ Vagrant::Config.run do |config|
   # this is a beast, needs a lot of memory
   config.vm.customize [
     "modifyvm", :id,
-    "--name", "Accumulo Dev VM v0.2",
+    "--name", "Accumulo Dev VM v0.6",
     "--memory", "6144"
   ]
   
