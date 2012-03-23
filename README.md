@@ -18,9 +18,11 @@ use Chef
 * Install ruby and rubygems (If not already installed)
 
 `sudo gem install knife-ec2 chef`
+
 `mkdir ~/.chef` 
+
 `cp knife.py ~/.chef`
-`
+
 
 * setup your enviroment variables for your keys (in .profile or another file) 
 
@@ -37,6 +39,7 @@ export AWS_SECRET_ACCESS_KEY=XXXXXXXXXXXXXXXXXX
 * get the ip address and connect to it 
 
 `ssh -i ~/.ssh/accumulo.pem ubuntu@ec2box` 
+
 `sh -c "$(curl -fsSL https://raw.github.com/tlpinney/cloudops/v0.2/seed.sh)"`
 
 
@@ -92,15 +95,20 @@ Install ruby and rubygems
 
 
 `vagrant up` 
+
 `vagrant ssh  # this will login to the vm as vagrant, you will need to su to ubuntu`
+
 `sudo su - ubuntu`
 
 
 the install.sh expects to be run as ubuntu user
 
 `sh /vagrant/install.sh`
+
 `~/accumulo/bin/accumulo init`
+
 `~/accumulo/bin/start-all.sh`
+
 `~/accumulo/bin/accumulo shell -u root`
 
 
@@ -115,6 +123,7 @@ Reinstall guest additions to get xserver module loaded
 Go to the tab in VirtualBox, Devices -> Install Guest Additions.. 
 
 `sudo mount /dev/cdrom /media/cdrom`
+
 `sudo sh /media/cdrom/VBoxLinuxAdditions.run`
 
 `startx`
