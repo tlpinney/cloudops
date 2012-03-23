@@ -100,12 +100,15 @@ sh /vagrant/install.sh
 ~/accumulo/bin/accumulo shell -u root 
 `
 
-# Optional to install set up gui.
-# uncomment out "config.vm.boot_mode = :gui" in VagrantFile
+##### Optional to install set up gui.
 
-# login and password is : ubuntu
-# Reinstall guest additions to get xserver module loaded 
-# Go to the tab in VirtualBox, Devices -> Install Guest Additions.. 
+uncomment out "config.vm.boot_mode = :gui" in VagrantFile
+
+login and password is : ubuntu
+
+Reinstall guest additions to get xserver module loaded 
+
+Go to the tab in VirtualBox, Devices -> Install Guest Additions.. 
 sudo mount /dev/cdrom /media/cdrom
 sudo sh /media/cdrom/VBoxLinuxAdditions.run
 
