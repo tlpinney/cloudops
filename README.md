@@ -13,41 +13,41 @@ Set up a m1.large instance manually using aws console
 ... or 
 use Chef 
 
-* Set up chef 
+#### Set up chef 
 
 * Install ruby and rubygems (If not already installed)
-* sudo gem install knife-ec2 chef 
- 
+
+`sudo gem install knife-ec2 chef`
 `mkdir ~/.chef 
 cp knife.py ~/.chef
 `
 
-# setup your enviroment variables for your keys (in .profile or another file) 
+* setup your enviroment variables for your keys (in .profile or another file) 
 export AWS_ACCESS_KEY_ID=XXXXXXXXXX
 export AWS_SECRET_ACCESS_KEY=XXXXXXXXXXXXXXXXXX
 
-# create a amazon ec2 key pair for accumulo and save it to ~/.ssh/accumulo.pem
+* create a amazon ec2 key pair for accumulo and save it to ~/.ssh/accumulo.pem
 
 ` 
 knife ec2 server create -r 'role[webserver]' -I ami-08f40561 -f m1.large
 knife ec2 server list 
 `
 
-# get the ip address and connect to it 
+* get the ip address and connect to it 
 
 `
 ssh -i ~/.ssh/accumulo.pem ubuntu@ec2box 
 sh -c "$(curl -fsSL https://raw.github.com/tlpinney/cloudops/v0.2/seed.sh)"
 `
 
-# set up your instance name and password 
+* set up your instance name and password 
 
 `~/accumulo/bin/accumulo init`
 
-# start the services 
+* start the services 
 `~/accumulo/bin/start-all.sh`
 
-# Log into the console 
+* Log into the console 
 `~/accumulo/bin/accumulo shell -u root`
 
 
@@ -55,18 +55,17 @@ sh -c "$(curl -fsSL https://raw.github.com/tlpinney/cloudops/v0.2/seed.sh)"
 To Install Locally (Vagrant Instance)
 -------------------------------------
 
-NOTE: The VM is configured to use 6GB. You will need at least 8GB of ram in your host machine. Only tested on a Mac. Manually open development box in VirtualBox. Give it two cores, and make sure "Use host I/O cache" is enabled on the SATA
-controller.
+    NOTE: The VM is configured to use 6GB. You will need at least 8GB of ram in your host machine. Only tested on a Mac. Manually open development box in VirtualBox. Give it two cores, and make sure "Use host I/O cache" is enabled on the SATA controller.
 
 Windows Install 
 Recommended if installing vagrant on Windows
-http://rubyinstaller.org/
+`http://rubyinstaller.org/`
 
-vagrant binary (if you can't install it from the gem for some reason)
+* vagrant binary (if you can't install it from the gem for some reason)
 http://downloads.vagrantup.com/tags/v1.0.1
 
-virtualbox
-https://www.virtualbox.org/wiki/Downloads
+* virtualbox
+`https://www.virtualbox.org/wiki/Downloads`
 
 
 
@@ -114,17 +113,17 @@ sudo sh /media/cdrom/VBoxLinuxAdditions.run
 startx 
 `
 
-# this will run openbox 
+* this will run openbox 
 
 
 
-# Show accumulo classpath
+* Show accumulo classpath
 `~/accumulo/bin/accumulo classpath`
 
-# show the available instances 
+* show the available instances 
 `~/accumulo/bin/accumulo org.apache.accumulo.server.util.ListInstances`
 
-# example for inserting data  
+* example for inserting data  
 `~/accumulo/bin/accumulo org.apache.accumulo.examples.helloworld.InsertWithBatchWriter cloud 127.0.0.1 table root password`
 
 
