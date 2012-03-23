@@ -18,36 +18,38 @@ use Chef
 * Install ruby and rubygems (If not already installed)
 
 `sudo gem install knife-ec2 chef`
-`mkdir ~/.chef 
-cp knife.py ~/.chef
+`mkdir ~/.chef` 
+`cp knife.py ~/.chef`
 `
 
 * setup your enviroment variables for your keys (in .profile or another file) 
+
 export AWS_ACCESS_KEY_ID=XXXXXXXXXX
+
 export AWS_SECRET_ACCESS_KEY=XXXXXXXXXXXXXXXXXX
+
 
 * create a amazon ec2 key pair for accumulo and save it to ~/.ssh/accumulo.pem
 
-` 
-knife ec2 server create -r 'role[webserver]' -I ami-08f40561 -f m1.large
-knife ec2 server list 
-`
+`knife ec2 server create -r 'role[webserver]' -I ami-08f40561 -f m1.large`
+`knife ec2 server list`
 
 * get the ip address and connect to it 
 
-`
-ssh -i ~/.ssh/accumulo.pem ubuntu@ec2box 
-sh -c "$(curl -fsSL https://raw.github.com/tlpinney/cloudops/v0.2/seed.sh)"
-`
+`ssh -i ~/.ssh/accumulo.pem ubuntu@ec2box` 
+`sh -c "$(curl -fsSL https://raw.github.com/tlpinney/cloudops/v0.2/seed.sh)"`
+
 
 * set up your instance name and password 
 
 `~/accumulo/bin/accumulo init`
 
 * start the services 
+
 `~/accumulo/bin/start-all.sh`
 
 * Log into the console 
+
 `~/accumulo/bin/accumulo shell -u root`
 
 
