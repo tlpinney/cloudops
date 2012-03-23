@@ -93,7 +93,11 @@ Install ruby and rubygems
 vagrant up 
 vagrant ssh  # this will login to the vm as vagrant, you will need to su to ubuntu
 sudo su - ubuntu
-# the install.sh expects to be run as ubuntu user
+`
+
+the install.sh expects to be run as ubuntu user
+
+`
 sh /vagrant/install.sh
 ~/accumulo/bin/accumulo init
 ~/accumulo/bin/start-all.sh
