@@ -2,8 +2,10 @@ Accumulo Dev Virtual Machine
 ============================
 
 Based on 
+
 install.sh: Original from  http://www.accumulodata.com/install.sh
 java was removed from ubuntu. 
+
 Modified to use https://github.com/flexiondotorg/oab-java6 for java.
 
 
